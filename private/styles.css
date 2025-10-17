@@ -1,0 +1,103 @@
+
+body {
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  padding-top: 70px; 
+}
+
+*{ font-family: "geist mono";
+
+  }
+
+.navbar {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  background-color:rgba(178, 72, 34, 0.827) !important
+}
+
+#home {
+  height: 720px;
+  background: url('img/FONDO.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#home h1 {
+  font-size: 100px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+#home p {
+  font-size: 30px;
+  color: #f8f9fa;
+  font-style: italic;
+}
+
+#home .btn {
+  transition: 0.3s ease;
+}
+
+#home .btn:hover {
+  transform: scale(1.05);
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  height: 350px;
+  object-fit: cover;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+/* ===== SECCIONES ===== */
+section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+#characters, #places {
+  background-color: #fff;
+}
+
+#story p {
+  font-size: 18px;
+  color: #333;
+}
+
+#moral {
+  background: rgba(178, 72, 34, 0.827);
+  color: white;
+}
+#moral h2 {
+  font-size: 30px;
+  color: #ffffff;
+}
+#moral p {
+  font-size: 18px;
+  color: hsl(0, 0%, 100%);
+}
+
+footer {
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  #home h1 {
+    font-size: 2.2rem;
+  }
+  #home p {
+    font-size: 1rem;
+  }
+  .card-img-top {
+    height: 200px;
+  }
+}
