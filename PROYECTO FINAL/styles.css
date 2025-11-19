@@ -148,8 +148,8 @@ section { padding:120px 0; }
 body.lag { transform: scale(0.995); filter: blur(5px) brightness(0.9); transition: transform 0.2s ease; }
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: "Rubik Puddles", system-ui;
-  font-weight: 400;
+  font-family:"Bebas Neue", sans-serif;
+  font-weight: 600;
   font-style: normal;
 }
 
