@@ -18,7 +18,7 @@ body {
 
 /* SECCIONES */
 section { padding:120px 0; }
-#inicio { background: linear-gradient(180deg,#6ec1ff 0%, #a8ddff 100%); color:#013440; text-align:center; }
+#inicio { background: linear-gradient(180deg,#6ec1ff 0%, #a8ddff 100%); color:#013440; text-align:center; height: 1080px; font-size: larger; }
 #impacto { background: #fff; color:#222; text-align:center; }
 #formulario { background: #f6f7f8; color:#222; text-align:center; }
 
@@ -147,10 +147,18 @@ section { padding:120px 0; }
 /* efecto "lag" */
 body.lag { transform: scale(0.995); filter: blur(5px) brightness(0.9); transition: transform 0.2s ease; }
 
-h1,h2,h3,h4,h5,h6 {
+h1,h2 {
   font-family:"Bebas Neue", sans-serif;
-  font-weight: 1000;
+  font-weight: 800;
   text-transform: uppercase;
+}
+
+h1 {
+  font-size: 150pt;
+}
+
+h2 {
+  font-size: 60pt;
 }
 
 
