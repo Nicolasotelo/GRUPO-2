@@ -164,14 +164,58 @@ Esta página está diseñada a mostrar aceleradamente el proceso del plástico c
     });
 
     // formulario "resistente"
-    const form = document.getElementById('recycleForm');
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const popup = document.createElement('div');
-      popup.className = 'popup';
-      popup.innerHTML = `<p>El plástico no se recicla tan fácilmente...</p>`;
-      document.body.appendChild(popup);
-    });
+// formulario "resistente" -> ahora multiplica la basura al enviar
+const form = document.getElementById('recycleForm');
+
+function spawnTrash(n) {
+  const MAX_TRASH = 800; // tope para no colapsar
+  for (let i = 0; i < n; i++) {
+    const img = document.createElement('img');
+    img.src = 'img/' + basura[Math.floor(Math.random() * basura.length)];
+    img.className = 'trash';
+    img.style.top = (window.scrollY + Math.random() * window.innerHeight) + 'px';
+    img.style.left = (Math.random() * window.innerWidth) + 'px';
+    img.style.transform = `rotate(${Math.random() * 360}deg)`;
+    papelera.appendChild(img);
+  }
+  // eliminar exceso si hay más que el tope
+  while (papelera.children.length > MAX_TRASH) {
+    papelera.removeChild(papelera.firstChild);
+  }
+}
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+
+  // popup informativo (igual que antes)
+  const popup = document.createElement('div');
+  popup.className = 'popup';
+  popup.innerHTML = `<p>El plástico no se recicla tan fácilmente...</p>`;
+  document.body.appendChild(popup);
+
+  // intentamos leer un número del textarea para multiplicar el efecto
+  const textarea = form.querySelector('textarea');
+  let userNum = 0;
+  if (textarea) {
+    // extrae dígitos si el usuario escribe "50" o "$50"
+    const digits = (textarea.value || '').replace(/\D/g, '');
+    userNum = digits ? parseInt(digits, 10) : 0;
+  }
+
+  // decide cuánta basura generar:
+  // si el usuario escribió un número, lo multiplicamos para efecto dramático.
+  // si no, usamos un valor por defecto.
+  const BASE = 25; // basura por defecto
+  const multiplier = userNum > 0 ? Math.min(userNum, 200) : 1;
+  const toSpawn = userNum > 0 ? Math.min(BASE * multiplier, 600) : BASE;
+
+  spawnTrash(toSpawn);
+
+  // pequeño feedback visual
+  document.body.classList.add('lag');
+  setTimeout(() => document.body.classList.remove('lag'), 400);
+});
+
 
     /* --- Overlay radial limpio al inicio --- */
     const overlay = document.querySelector('.blur-overlay');
